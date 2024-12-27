@@ -20,7 +20,7 @@ const PFvalues = () => {
     { id: 5, label: 'Inc Earnings for PF value below ceiling', value: '' },
     { id: 6, label: 'EPF Contribution (%)', value: '' },
     { id: 7, label: 'Upper Limit', value: '' },
-    { id: 8, label: 'FPF Contribution (%)', value: '' },
+    { id: 8, label: 'EPS Contribution (%)', value: '' },
     { id: 9, label: 'Eligibility Amount', value: '' },
     { id: 10, label: 'Admin Charges (%)', value: '' },
     { id: 11, label: 'Rounding Options', value: '' },
@@ -150,7 +150,7 @@ const columns = [
                 'Inc Earnings for PF value below ceiling': 'PF_below_ceiling',
                 'EPF Contribution (%)': 'EPF_Contribution(%)',
                 'Upper Limit': 'Upper_Limit',
-                'FPF Contribution (%)': 'FPF_Contribution(%)',
+                'EPS Contribution (%)': 'EPS_Contribution(%)',
                 'Eligibility Amount': 'Eligibility_Amount',
                 'Admin Charges (%)': 'Admin_Charges(%)',
                 'Rounding Options': 'Rounding_Options',
@@ -207,7 +207,7 @@ const columns = [
             PF_below_ceiling = '${data['Inc Earnings for PF value below ceiling'] || ''}',
             [EPF_Contribution(%)] = ${parseFloat(data['EPF Contribution (%)']) || 'NULL'},
             Upper_Limit = ${parseInt(data['Upper Limit'], 10) || 'NULL'},
-            [FPF_Contribution(%)] = ${parseFloat(data['FPF Contribution (%)']) || 'NULL'},
+            [EPS_Contribution(%)] = ${parseFloat(data['EPS Contribution (%)']) || 'NULL'},
             Eligibility_Amount = ${parseInt(data['Eligibility Amount'], 10) || 'NULL'},
             [Admin_Charges(%)] = ${parseFloat(data['Admin Charges (%)']) || 'NULL'},
             Rounding_Options = '${data['Rounding Options'] || ''}'
@@ -218,7 +218,7 @@ const columns = [
           INSERT INTO [dbo].[PF_Settings] 
           (
             pn_CompanyID, Effective_Month_From, Effective_From_Year, [PF_Contribution(%)], 
-            Max_Ceiling, PF_below_ceiling, [EPF_Contribution(%)], Upper_Limit, [FPF_Contribution(%)], 
+            Max_Ceiling, PF_below_ceiling, [EPF_Contribution(%)], Upper_Limit, [EPS_Contribution(%)], 
             Eligibility_Amount, [Admin_Charges(%)], Rounding_Options
           ) 
           VALUES 
@@ -231,7 +231,7 @@ const columns = [
             '${data['Inc Earnings for PF value below ceiling'] || ''}', 
             ${parseFloat(data['EPF Contribution (%)']) || 'NULL'}, 
             ${parseInt(data['Upper Limit'], 10) || 'NULL'}, 
-            ${parseFloat(data['FPF Contribution (%)']) || 'NULL'}, 
+            ${parseFloat(data['EPS Contribution (%)']) || 'NULL'}, 
             ${parseInt(data['Eligibility Amount'], 10) || 'NULL'}, 
             ${parseFloat(data['Admin Charges (%)']) || 'NULL'}, 
             '${data['Rounding Options'] || ''}'
